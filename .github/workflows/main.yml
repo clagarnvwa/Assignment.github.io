@@ -1,0 +1,24 @@
+name: My Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  ENV_VAR1: value1
+  ENV_VAR2: value2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ENV_VAR3: value3
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build
+      run: |
+        echo $ENV_VAR1
+        echo $ENV_VAR2
+        echo $ENV_VAR3
